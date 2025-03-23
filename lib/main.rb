@@ -1,9 +1,9 @@
 class Node
-  attr_accessor :data, :next
+  attr_accessor :data, :next_node
 
   def initialize(data)
     @data = data
-    @next = nil
+    @next_node = nil
   end
 end
 
@@ -16,13 +16,13 @@ class LinkedList
   end
 
   def append(data)
-    node = Node.new(data)
+    new_node = Node.new(data)
     if @head.nil?
-      @head = node
-      @tail = node
+      @head = new_node
+      @tail = new_node
     else
-      @tail.next = node
-      @tail = node
+      @tail.next_node = new_node
+      @tail = new_node
     end
   end
 
@@ -31,7 +31,7 @@ class LinkedList
     nodes = []
     while current_node
       nodes << "( #{current_node.data} )"
-      current_node = current_node.next
+      current_node = current_node.next_node
     end
     "#{nodes.join(' -> ')} -> nil" 
   end
