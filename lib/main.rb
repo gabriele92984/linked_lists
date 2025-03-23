@@ -27,15 +27,13 @@ class LinkedList
   end
 
   def to_s
-    string = ""
     current_node = @head
+    nodes = []
     while current_node
-      string += "( #{current_node.data} ) -> "
+      nodes << "( #{current_node.data} )"
       current_node = current_node.next
     end
-
-    string += "nil"
-    string
+    "#{nodes.join(' -> ')} -> nil" 
   end
 end
 
