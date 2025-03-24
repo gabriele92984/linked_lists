@@ -8,11 +8,11 @@ class Node
 end
 
 class LinkedList
-  attr_accessor :head, :tail
 
   def initialize
     @head = nil
     @tail = nil
+    @size = 0
   end
 
   def append(data)
@@ -24,16 +24,17 @@ class LinkedList
       @tail.next_node = new_node
       @tail = new_node
     end
+    @size += 1
   end
 
   def to_s
-    current_node = @head
-    nodes = []
-    while current_node
-      nodes << "( #{current_node.data} )"
-      current_node = current_node.next_node
+    current = @head
+    str = ""
+    until current.nil?
+      str += "( #{current.data} ) -> "
+      current = current.next_node
     end
-    "#{nodes.join(' -> ')} -> nil" 
+    str += "nil"
   end
 end
 
