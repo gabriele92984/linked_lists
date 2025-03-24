@@ -39,6 +39,18 @@ class LinkedList
     @size += 1
   end
 
+  def size
+    @size
+  end
+
+  def head
+    @head
+  end
+
+  def tail
+    @tail
+  end
+
   def to_s
     current = @head
     str = ""
