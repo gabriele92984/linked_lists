@@ -82,3 +82,7 @@ list.append('snake')
 list.append('turtle')
 
 puts list
+puts list.size
+puts list.head
+puts list.tail
+puts list.at(3)
