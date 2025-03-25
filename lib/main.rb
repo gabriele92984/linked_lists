@@ -65,6 +65,20 @@ class LinkedList
     current_node
   end
 
+  def pop
+    return if @size.zero?
+
+    if @size == 1
+      @head == nil
+      @tail == nil
+    else
+      new_tail = at(@size - 2)
+      new_tail.next_node = nil
+      @tail = new_tail
+    end
+    @size -=1
+  end
+
   def to_s
     current_node = @head
   string = ""
@@ -90,3 +104,6 @@ puts list.size
 puts list.head
 puts list.tail
 puts list.at(3)
+puts list.pop
+puts list
+
