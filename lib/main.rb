@@ -5,6 +5,10 @@ class Node
     @data = data
     @next_node = nil
   end
+
+  def to_s
+    @data.to_s
+  end
 end
 
 class LinkedList
