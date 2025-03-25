@@ -17,6 +17,7 @@ class LinkedList
 
   def append(data)
     new_node = Node.new(data)
+  
     if @head.nil?
       @head = new_node
       @tail = new_node
@@ -28,13 +29,14 @@ class LinkedList
   end
 
   def prepend(value)
-    node = Node.new(value)
+    new_node = Node.new(value)
+
     if @head.nil?
-      @head = node
-      @tail = node
+      @head = new_node
+      @tail = new_node
     else
-      node.next_node = @head
-      @head = node
+      new_node.next_node = @head
+      @head = new_node
     end
     @size += 1
   end
@@ -51,14 +53,22 @@ class LinkedList
     @tail
   end
 
+  def at(index)
+    return nil if index.negative? || index >= @size
+
+    current_node = @head
+    index.times { current_node = current_node.next_node }
+    current_node
+  end
+
   def to_s
-    current = @head
-    str = ""
-    until current.nil?
-      str += "( #{current.data} ) -> "
-      current = current.next_node
+    current_node = @head
+  string = ""
+    until current_node.nil?
+    string += "( #{current_node.data} ) -> "
+      current_node = current_node.next_node
     end
-    str += "nil"
+  string += "nil"
   end
 end
 
