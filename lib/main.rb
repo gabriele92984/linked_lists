@@ -79,11 +79,11 @@ end
 list = LinkedList.new
 
 list.append('dog')
-list.append('cat')
+list.prepend('cat')
 list.append('parrot')
-list.append('hamster')
+list.prepend('hamster')
 list.append('snake')
-list.append('turtle')
+list.prepend('turtle')
 
 puts list
 puts list.size
