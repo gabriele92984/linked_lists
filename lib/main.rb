@@ -1,7 +1,7 @@
 class Node
-  attr_accessor :data, :next_node
+  attr_accessor :value, :next_node
 
-  def initialize(value)
+  def initialize(value = nil)
     @value = value
     @next_node = nil
   end
@@ -79,11 +79,21 @@ class LinkedList
     @size -=1
   end
 
+  def contains?(value)
+    current_node = @head
+    until current_node.nil?
+      return true if current_node.value == value
+
+      current_node = current_node.next_node
+    end
+    false
+  end
+
   def to_s
     current_node = @head
   string = ""
     until current_node.nil?
-    string += "( #{current_node.data} ) -> "
+    string += "( #{current_node.value} ) -> "
       current_node = current_node.next_node
     end
   string += "nil"
@@ -106,4 +116,3 @@ puts list.tail
 puts list.at(3)
 puts list.pop
 puts list
-
