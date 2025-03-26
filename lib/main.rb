@@ -110,6 +110,20 @@ class LinkedList
     end
   string += "nil"
   end
+
+  def insert_at(value, index)
+    if index <= 0
+      prepend(value)
+    elsif index >= @size
+      append(value)
+    else
+      new_node = Node.new(value)
+      prev_node = at(index - 1)
+      new_node.next_node = prev_node.next_node
+      prev_node.next_node = new_node
+      @size += 1
+    end
+  end
 end
 
 list = LinkedList.new
@@ -128,8 +142,13 @@ puts list.tail
 puts list.at(3)
 puts list.pop
 puts list
+
 puts list.contains?('cat')
 puts list.contains?('bat')
+
 puts list.find('hamster')
 puts list.find('zebra')
+puts list
 
+puts list.insert_at('zebra', 2)
+puts list
