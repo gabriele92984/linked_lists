@@ -1,13 +1,13 @@
 class Node
   attr_accessor :data, :next_node
 
-  def initialize(data)
-    @data = data
+  def initialize(value)
+    @value = value
     @next_node = nil
   end
 
   def to_s
-    @data
+    @value
   end
 end
 
@@ -19,8 +19,8 @@ class LinkedList
     @size = 0
   end
 
-  def append(data)
-    new_node = Node.new(data)
+  def append(value)
+    new_node = Node.new(value)
   
     if @head.nil?
       @head = new_node
