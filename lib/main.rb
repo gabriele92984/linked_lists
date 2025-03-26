@@ -116,3 +116,5 @@ puts list.tail
 puts list.at(3)
 puts list.pop
 puts list
+puts list.contains?('cat')
+puts list.contains?('bat')
