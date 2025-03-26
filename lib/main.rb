@@ -124,6 +124,20 @@ class LinkedList
       @size += 1
     end
   end
+
+  def remove_at(index)
+    return if index.negative? || index >= @size
+
+    if index.zero?
+      @head = @head.next_node
+      @tail = nil if @size == 1
+    else
+      prev_node = at(index - 1)
+      prev_node.next_node = prev_node.next_node.next_node
+      @tail = prev_node if prev_node.next_node.nil?
+    end
+    @size -= 1
+  end
 end
 
 list = LinkedList.new
@@ -140,7 +154,8 @@ puts list.size
 puts list.head
 puts list.tail
 puts list.at(3)
-puts list.pop
+
+list.pop
 puts list
 
 puts list.contains?('cat')
@@ -148,7 +163,9 @@ puts list.contains?('bat')
 
 puts list.find('hamster')
 puts list.find('zebra')
+
+list.insert_at('zebra', 2)
 puts list
 
-puts list.insert_at('zebra', 2)
+list.remove_at(2)
 puts list
