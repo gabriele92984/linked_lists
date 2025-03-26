@@ -89,6 +89,18 @@ class LinkedList
     false
   end
 
+  def find(value)
+    current_node = @head
+    index = 0
+    until current_node.nil?
+      return index if current_node.value == value
+
+      current_node = current_node.next_node
+      index += 1
+    end
+    nil
+  end
+  
   def to_s
     current_node = @head
   string = ""
@@ -118,3 +130,6 @@ puts list.pop
 puts list
 puts list.contains?('cat')
 puts list.contains?('bat')
+puts list.find('hamster')
+puts list.find('zebra')
+
