@@ -12,7 +12,6 @@ class Node
 end
 
 class LinkedList
-
   def initialize
     @head = nil
     @tail = nil
@@ -21,7 +20,7 @@ class LinkedList
 
   def append(value)
     new_node = Node.new(value)
-  
+
     if @head.nil?
       @head = new_node
       @tail = new_node
@@ -45,17 +44,7 @@ class LinkedList
     @size += 1
   end
 
-  def size
-    @size
-  end
-
-  def head
-    @head
-  end
-
-  def tail
-    @tail
-  end
+  attr_reader :size, :head, :tail
 
   def at(index)
     return nil if index.negative? || index >= @size
@@ -69,14 +58,14 @@ class LinkedList
     return if @size.zero?
 
     if @size == 1
-      @head == nil
-      @tail == nil
+      @head.nil?
+      @tail.nil?
     else
       new_tail = at(@size - 2)
       new_tail.next_node = nil
       @tail = new_tail
     end
-    @size -=1
+    @size -= 1
   end
 
   def contains?(value)
@@ -100,15 +89,15 @@ class LinkedList
     end
     nil
   end
-  
+
   def to_s
     current_node = @head
-  string = ""
+    string = ''
     until current_node.nil?
-    string += "( #{current_node.value} ) -> "
+      string += "( #{current_node.value} ) -> "
       current_node = current_node.next_node
     end
-  string += "nil"
+    "#{string} nil "
   end
 
   def insert_at(value, index)
